@@ -10,7 +10,7 @@ use Mix.Config
 
 # You can configure for your application as:
 #
-config :distancex, api_key: "AIzaSyCgT3WPK-uC64_xBGqBxJPTdK5UmGbuFl4"
+#config :distancex, api_key: "Yourkey"
 #
 # And access this configuration in your application as:
 #

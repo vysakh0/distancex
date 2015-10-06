@@ -1,0 +1,31 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://maps.googleapis.com/maps/api/distancematrix/json"
+    },
+    "response": {
+      "body": "{\n   \"destination_addresses\" : [\"\"],\n   \"error_message\" :  \"The provided API key is expired.\" ,\n   \"rows\" : [],\n   \"status\" : \"REQUEST_DENIED\"\n}\n",
+      "headers": {
+        "Content-Type": "application/json; charset=UTF-8",
+        "Date": "Tue, 06 Oct 2015 13:15:48 GMT",
+        "Expires": "Wed, 07 Oct 2015 13:15:48 GMT",
+        "Cache-Control": "public, max-age=86400",
+        "Server": "mafe",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Frame-Options": "SAMEORIGIN",
+        "Alternate-Protocol": "443:quic,p=1",
+        "Alt-Svc": "quic=\":443\"; p=\"1\"; ma=604800",
+        "Accept-Ranges": "none",
+        "Vary": "Accept-Language,Accept-Encoding",
+        "Transfer-Encoding": "chunked"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

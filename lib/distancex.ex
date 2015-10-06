@@ -1,7 +1,7 @@
 defmodule Distancex do
 
   @moduledoc """
-  Wrapper for Google Directions API. Can return the drive driving distance between two places.
+  Wrapper for Google Directions API. Can return the drive time and driving distance between two places.
 
   A sample [http request and the corresponding json response](https://maps.googleapis.com/maps/api/distancematrix/json?origins=2+BC&destinations=San+Francisco)
 
@@ -59,7 +59,8 @@ defmodule Distancex do
   defp result(org, des, type) do
     HTTPoison.start
     %{body: body} = form_url(org, des) |> HTTPoison.get!
-    Distancex.Results.parse(body, type)
+    Poison.decode!(body)
+    |> Distancex.Results.parse(type)
   end
 
   defp form_url(origin, destination) do

@@ -10,7 +10,7 @@ Add distancex to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
- [{:distancex, "~> 0.0.2"} ]
+ [{:distancex, "~> 0.0.3"} ]
 end
 ```
  Install the package

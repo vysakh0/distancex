@@ -1,0 +1,31 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://maps.googleapis.com/maps/api/distancematrix/json"
+    },
+    "response": {
+      "body": "{\n   \"destination_addresses\" : [ \"San Francisco, CA, USA\" ],\n   \"origin_addresses\" : [ \"Vancouver, WA, USA\" ],\n   \"rows\" : [\n      {\n         \"elements\" : [\n            {\n               \"distance\" : {\n                  \"text\" : \"1,036 km\",\n                  \"value\" : 1036491\n               },\n               \"duration\" : {\n                  \"text\" : \"9 hours 52 mins\",\n                  \"value\" : 35547\n               },\n               \"status\" : \"OK\"\n            }\n         ]\n      }\n   ],\n   \"status\" : \"OK\"\n}\n",
+      "headers": {
+        "Content-Type": "application/json; charset=UTF-8",
+        "Date": "Tue, 06 Oct 2015 13:13:03 GMT",
+        "Expires": "Wed, 07 Oct 2015 13:13:03 GMT",
+        "Cache-Control": "public, max-age=86400",
+        "Server": "mafe",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Frame-Options": "SAMEORIGIN",
+        "Alternate-Protocol": "443:quic,p=1",
+        "Alt-Svc": "quic=\":443\"; p=\"1\"; ma=604800",
+        "Accept-Ranges": "none",
+        "Vary": "Accept-Language,Accept-Encoding",
+        "Transfer-Encoding": "chunked"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
