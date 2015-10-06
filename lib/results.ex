@@ -1,12 +1,14 @@
 defmodule Distancex.Results do
-  @no_results %{"rows" => [
-        %{
-          "elements" => [ %{"status"=> "ZERO_RESULTS"}]
-        }
-      ]}
+  @no_results %{
+    "rows" => [ %{"elements" => [ %{"status"=> "ZERO_RESULTS"}] } ]
+  }
 
   def parse(@no_results, _t)  do
     {:error, "No results found"}
+  end
+
+  def parse(rows, "both") do
+    {parse(rows, "distance"), parse(rows, "duration")}
   end
 
   def parse(%{"rows" => [%{"elements" => ele }] }, type) do

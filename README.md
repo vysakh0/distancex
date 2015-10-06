@@ -10,7 +10,7 @@ Add distancex to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
- [{:distancex, "~> 0.0.1"} ]
+ [{:distancex, "~> 0.0.2"} ]
 end
 ```
  Install the package
@@ -43,6 +43,10 @@ iex> Distancex.distance("49.2827N,123.1207W", "7.7833N,122.4167W")
 #=> 1529113
 iex> Distancex.duration("49.2827N,123.1207W", "7.7833N,122.4167W")
 #=> 53750
+iex> Distancex.distance_time("49.2827N,123.1207W", "7.7833N,122.4167W")
+#=> {1529113, 53750}
+iex> Distancex.distance_time("Vancouver", "San Francisco")
+#=> {1529113, 53750}
 ```
 
 ### Invalid key

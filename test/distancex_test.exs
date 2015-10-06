@@ -12,6 +12,7 @@ defmodule DistancexTest do
     use_cassette "success", custom: true do
       assert Distancex.distance("Vancouver", "San Francisco") == 1529113
       assert Distancex.duration("Vancouver", "San Francisco") == 53750
+      assert Distancex.distance_time("Vancouver", "San Francisco") == {1529113, 53750}
     end
   end
 

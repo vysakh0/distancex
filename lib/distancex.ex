@@ -24,6 +24,8 @@ defmodule Distancex do
       #=> 1529113
       iex> Distancex.duration("49.2827N,123.1207W", "7.7833N,122.4167W")
       #=> 53750
+      iex> Distancex.distance_time("49.2827N,123.1207W", "7.7833N,122.4167W")
+      #=> {1529113, 53750}
   """
   @doc """
   Given an origin and destination, returns the distance betwen them in  metres
@@ -44,10 +46,19 @@ defmodule Distancex do
   """
   def duration(org, des), do: result(org, des, "duration")
 
+  @doc """
+  To get both distance and time between two places. Returns a tuple of {distance, duration}.
+
+      iex> Distancex.distance_time("Vancouver", "San Francisco")
+      #=> {1529113, 53750}
+      iex> Distancex.distance_time("49.2827N,123.1207W", "7.7833N,122.4167W")
+      #=> {1529113, 53750}
+  """
+  def distance_time(org, des), do: result(org, des, "both")
+
   defp result(org, des, type) do
     HTTPoison.start
-    {:ok, %{body: body}} = form_url(org, des)
-                            |> HTTPoison.get
+    %{body: body} = form_url(org, des) |> HTTPoison.get!
     Distancex.Results.parse(body, type)
   end
 
@@ -56,6 +67,7 @@ defmodule Distancex do
     |> URI.encode_query
     |> final_url
   end
+
   defp final_url(url) do
     "https://maps.googleapis.com/maps/api/distancematrix/json?" <> url
   end
