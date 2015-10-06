@@ -8,13 +8,13 @@ defmodule Distancex.Mixfile do
       build_embedded: Mix.env == :prod,
       start_permanent: Mix.env == :prod,
       package: [
-        contributors: ["Vysakh Sreenivasan"],
+        maintainers: ["Vysakh Sreenivasan"],
         licenses: ["MIT"],
         links: %{github: "https://github.com/vysakh0/distancex"}
       ],
       description: """
       Elixir-wrapper for Google Directions API. Can return the drive time and driving distance between two places.
-      """]
+      """,
       deps: deps]
   end
 

@@ -6,24 +6,17 @@ A sample [http request and the corresponding json response](https://maps.googlea
 
 ## Installation
 
-1. Add distancex to your list of dependencies in `mix.exs`:
+Add distancex to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
- [{:distancex, "https://github.com/vysakh0/distancex"}]
+ [{:distancex, "~> 0.0.1"} ]
 end
 ```
+ Install the package
 
 ```bash
 mix deps.get
-```
-
-2. Ensure distancex is started before your application:
-
-```elixir
-def application do
- [applications: [:distancex]]
-end
 ```
 
 
@@ -60,6 +53,10 @@ iex> Distancex.distance("Vancouver", "San Francisco")
 #=> {:error, "The provided API key is expired."}
 ```
 
-- Create an project in [google developer console](https://console.developers.google.com/)
-- Enable distance matrix api for that project. (A project url: https://console.developers.google.com/project/#{yourproject}/apiui/apiview/distance_matrix_backend/overview)
+- Create a project in [google developer console](https://console.developers.google.com/)
+- Enable distance matrix api for that project.
 - Get API key
+
+
+*"Everything we hear is an opinion, not a fact. Everything we see is a perspective, not the truth."
+― Marcus Aurelius, Meditations*
