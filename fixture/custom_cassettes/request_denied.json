@@ -1,0 +1,23 @@
+[
+    {
+        "request": {
+            "url": "~r/https://maps.googleapis.com/maps/api/distancematrix/json/"
+        },
+
+        "response" : {
+            "status_code": 200,
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "body": {
+                "destination_addresses" : [],
+                "error_message" : "The provided API key is expired.",
+                "origin_addresses" : [],
+                "rows" : [],
+                "status" : "REQUEST_DENIED"
+            }
+        }
+    }
+]
+
+

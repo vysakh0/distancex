@@ -1,0 +1,36 @@
+[
+    {
+        "request": {
+            "url": "~r/https://maps.googleapis.com/maps/api/distancematrix/json/"
+        },
+
+        "response" : {
+            "status_code": 200,
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "body": {
+            "destination_addresses" : [ "San Francisco, CA, USA" ],
+            "origin_addresses" : [ "Vancouver, BC, Canada" ],
+            "rows" : [
+                {
+                    "elements" : [
+                        {
+                            "distance" : {
+                                "text" : "950 mi",
+                                "value" : 1529113
+                            },
+                            "duration" : {
+                                "text" : "14 hours 56 mins",
+                                "value" : 53750
+                            },
+                            "status" : "OK"
+                        }
+                    ]
+                }
+            ],
+            "status" : "OK"
+            }
+        }
+    }
+]

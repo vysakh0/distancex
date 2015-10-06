@@ -1,0 +1,29 @@
+[
+    {
+        "request": {
+            "url": "~r/https://maps.googleapis.com/maps/api/distancematrix/json/"
+        },
+
+        "response" : {
+            "status_code": 200,
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "body": {
+                "destination_addresses" : [ "San Francisco, CA, USA" ],
+                "origin_addresses" : [ "British Columbia, Canada" ],
+                "rows" : [
+                    {
+                        "elements" : [
+                            {
+                                "status" : "ZERO_RESULTS"
+                            }
+                        ]
+                    }
+                ],
+                "status" : "OK"
+            }
+        }
+    }
+]
+
