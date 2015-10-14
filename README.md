@@ -6,6 +6,9 @@ A sample [http request and the corresponding json response](https://maps.googlea
 
 ## Installation
 
+**Dependencies**: Make sure you have Erlang 18+ version installed and Elixir 1.x version.
+This hex package will not work with Erlang 17.x version.
+
 Add distancex to your list of dependencies in `mix.exs`:
 
 ```elixir
