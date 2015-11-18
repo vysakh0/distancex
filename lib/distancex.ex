@@ -16,51 +16,21 @@ defmodule Distancex do
   ### Examples
 
   $ iex -S mix
-  iex> Distancex.distance("Vancouver", "San Francisco")
-  #=> 1529113
-  iex> Distancex.duration("Vancouver", "San Francisco")
-  #=> 53750
-  iex> Distancex.distance("49.2827N,123.1207W", "7.7833N,122.4167W")
-  #=> 1529113
-  iex> Distancex.duration("49.2827N,123.1207W", "7.7833N,122.4167W")
-  #=> 53750
-  iex> Distancex.distance_time("49.2827N,123.1207W", "7.7833N,122.4167W")
-  #=> {1529113, 53750}
+  iex> Distancex.result("Vancouver", "San Francisco")
+  #=> %Distancex.Result{
+        distance: %{text: "1,036 km", value: 1036074},
+        duration: %{text: "9 hours 54 mins", value: 35612}
+      }
+  iex> Distancex.result("49.2827N,123.1207W", "7.7833N,122.4167W").distance
+  #=> %{text: "1,036 km", value: 1036074}
+  iex> Distancex.result("49.2827N,123.1207W", "7.7833N,122.4167W").duration
+  #=>  %{text: "9 hours 54 mins", value: 35612}
   """
-  @doc """
-  Given an origin and destination, returns the distance betwen them in  metres
-  iex> Distancex.distance("Vancouver", "San Francisco")
-  #=> 1529113
-  iex> Distancex.distance("49.2827N,123.1207W", "7.7833N,122.4167W")
-  #=> 1529113
-  """
-
-  def distance(org, des), do: result(org, des, "distance")
-
-  @doc """
-  Given an origin and destination, returns the time to travel betwen them in seconds
-  iex> Distancex.distance("Vancouver", "San Francisco")
-  #=> 53750
-  iex> Distancex.duration("49.2827N,123.1207W", "7.7833N,122.4167W")
-  #=> 53750
-  """
-  def duration(org, des), do: result(org, des, "duration")
-
-  @doc """
-  To get both distance and time between two places. Returns a tuple of {distance, duration}.
-
-  iex> Distancex.distance_time("Vancouver", "San Francisco")
-  #=> {1529113, 53750}
-  iex> Distancex.distance_time("49.2827N,123.1207W", "7.7833N,122.4167W")
-  #=> {1529113, 53750}
-  """
-  def distance_time(org, des), do: result(org, des, "both")
-
-  defp result(org, des, type) do
+  def result(org, des) do
     form_url(org, des)
     |> fetch_results
     |> Poison.decode!
-    |> Distancex.Results.parse(type)
+    |> Distancex.Results.parse
   end
 
   defp form_url(origin, destination) do

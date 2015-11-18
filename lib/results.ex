@@ -7,20 +7,30 @@ defmodule Distancex.Results do
     "rows" => [ %{"elements" => [ %{"status"=> "ZERO_RESULTS"}] } ]
   }
 
-  def parse(@no_results, _t)  do
+  def parse(@no_results)  do
     {:error, "No results found"}
   end
 
-  def parse(rows, "both") do
-    {parse(rows, "distance"), parse(rows, "duration")}
+  def parse(%{"rows" => [%{"elements" => ele }] }) do
+    [
+      %{
+        "distance" => %{
+          "value" => dist_value,
+          "text" =>  dist_text
+        },
+        "duration" => %{
+          "value" => dur_value,
+          "text" =>  dur_text
+        }
+      }
+    ] = ele
+    %Distancex.Result{
+      distance: %{text: dist_text, value: dist_value},
+      duration: %{text: dur_text, value: dur_value},
+    }
   end
 
-  def parse(%{"rows" => [%{"elements" => ele }] }, type) do
-    [%{ ^type => %{ "value" => t } }] =  ele
-    t
-  end
-
-  def parse(%{"status" => "REQUEST_DENIED", "error_message" => msg}, _t)  do
+  def parse(%{"status" => "REQUEST_DENIED", "error_message" => msg})  do
     {:error, msg}
   end
 end
