@@ -1,0 +1,38 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": {
+        "httpc_options": [],
+        "http_options": []
+      },
+      "request_body": "",
+      "url": "https://maps.googleapis.com/maps/api/distancematrix/json?destinations=San+Francisco&key=&origins=Vancouver&units=imperial"
+    },
+    "response": {
+      "body": "{\n   \"destination_addresses\" : [ \"San Francisco, CA, USA\" ],\n   \"origin_addresses\" : [ \"Vancouver, WA, USA\" ],\n   \"rows\" : [\n      {\n         \"elements\" : [\n            {\n               \"distance\" : {\n                  \"text\" : \"644 mi\",\n                  \"value\" : 1036074\n               },\n               \"duration\" : {\n                  \"text\" : \"9 hours 54 mins\",\n                  \"value\" : 35612\n               },\n               \"status\" : \"OK\"\n            }\n         ]\n      }\n   ],\n   \"status\" : \"OK\"\n}\n",
+      "headers": {
+        "cache-control": "public, max-age=86400",
+        "date": "Wed, 18 Nov 2015 08:31:58 GMT",
+        "accept-ranges": "none",
+        "server": "mafe",
+        "vary": "Accept-Language,Accept-Encoding",
+        "content-length": "511",
+        "content-type": "application/json; charset=UTF-8",
+        "expires": "Thu, 19 Nov 2015 08:31:58 GMT",
+        "x-xss-protection": "1; mode=block",
+        "x-frame-options": "SAMEORIGIN",
+        "alternate-protocol": "443:quic,p=1",
+        "alt-svc": "quic=\":443\"; p=\"1\"; ma=604800"
+      },
+      "status_code": [
+        "HTTP/1.1",
+        200,
+        "OK"
+      ],
+      "type": "ok"
+    }
+  }
+]

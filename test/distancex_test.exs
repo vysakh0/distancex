@@ -14,6 +14,17 @@ defmodule DistancexTest do
     end
   end
 
+  test "distance & time response with options" do
+    use_cassette "success_with_options" do
+      expected_result = %Distancex.Result{
+        distance: %{text: "644 mi", value: 1036074},
+        duration: %{text: "9 hours 54 mins", value: 35612}
+      }
+      result  = Distancex.result("Vancouver", "San Francisco", %{units: "imperial"})
+      assert  result.distance == expected_result.distance
+      assert  result.duration == expected_result.duration
+    end
+  end
   test "distance & time: error when no results" do
     use_cassette "no_results" do
       assert Distancex.result("yolo", "z") == {:error, "No results found"}

@@ -2,6 +2,8 @@
 
 Elixir-wrapper for Google Directions API. Can return the drive time and driving distance between two places.
 
+[![Build Status](https://semaphoreci.com/api/v1/projects/4d42d620-07ac-4d24-8598-f136fb4fc62d/606943/badge.svg)](https://semaphoreci.com/vysakh0/distancex)
+
 A sample [http request and the corresponding json response](https://maps.googleapis.com/maps/api/distancematrix/json?origins=2+BC&destinations=San+Francisco)
 
 ## Installation
@@ -13,10 +15,10 @@ Add distancex to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
- [{:distancex, "~> 0.0.3"} ]
+[{:distancex, "~> 0.1.0"} ]
 end
 ```
- Install the package
+Install the package
 
 ```bash
 mix deps.get
@@ -34,23 +36,41 @@ config :distancex, api_key: "YourAPIKEY"
 
 ## Usage
 
-  The origin and destinations can be either a place name or a combo of latitude and longitude.
+The origin and destinations can be either a place name or a combo of latitude and longitude.
 
 ```elixir
 $ iex -S mix
-iex> Distancex.distance("Vancouver", "San Francisco")
-#=> 1529113
-iex> Distancex.duration("Vancouver", "San Francisco")
-#=> 53750
-iex> Distancex.distance("49.2827N,123.1207W", "7.7833N,122.4167W")
-#=> 1529113
-iex> Distancex.duration("49.2827N,123.1207W", "7.7833N,122.4167W")
-#=> 53750
-iex> Distancex.distance_time("49.2827N,123.1207W", "7.7833N,122.4167W")
-#=> {1529113, 53750}
-iex> Distancex.distance_time("Vancouver", "San Francisco")
-#=> {1529113, 53750}
+iex> Distancex.result("Vancouver", "San Francisco")
+
+#=> %Distancex.Result{
+    distance: %{text: "1,036 km", value: 1036074},
+        duration: %{text: "9 hours 54 mins", value: 35612}
+}
+
+iex> Distancex.result("49.2827N,123.1207W", "7.7833N,122.4167W").distance
+#=> %{text: "1,036 km", value: 1036074}
+
+iex> Distancex.result("49.2827N,123.1207W", "7.7833N,122.4167W").duration
+#=>  %{text: "9 hours 54 mins", value: 35612}
 ```
+
+You can pass optional paramater as an Elixir map.
+Please see the list of available optional parameters in this [url]
+(https://developers.google.com/maps/documentation/distance-matrix/intro)
+
+```elixir
+iex> Distancex.result("Vancouver", "San Francisco", %{units: "imperial"})
+
+#=> %Distancex.Result{
+    distance: %{text: "644 mi", value: 1036074},
+    duration: %{text: "9 hours 54 mins", value: 35612}
+}
+
+iex> Distancex.result("49.2827N,123.1207W", "7.7833N,122.4167W").distance
+#=> %{text: "644 mi", value: 1036074}
+```
+
+Note: the value for distance is in metres and for duration, it is in seconds
 
 ### Invalid key
 
