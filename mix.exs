@@ -19,12 +19,11 @@ defmodule Distancex.Mixfile do
   end
 
   def application do
-    [applications: [:logger, :httpoison]]
+    [applications: [:logger, :inets]]
   end
 
   defp deps do
     [{:exvcr, "~> 0.5.1", only: [:test]},
-    {:httpoison, "~> 0.7.2"},
      {:poison, "~> 1.4"}
     ]
   end

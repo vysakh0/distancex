@@ -1,3 +1,7 @@
+defmodule Distancex.Result do
+  defstruct [:distance, :duration]
+end
+
 defmodule Distancex.Results do
   @no_results %{
     "rows" => [ %{"elements" => [ %{"status"=> "ZERO_RESULTS"}] } ]
