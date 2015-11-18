@@ -43,15 +43,15 @@ $ iex -S mix
 iex> Distancex.result("Vancouver", "San Francisco")
 
 #=> %Distancex.Result{
-    distance: %{text: "1,036 km", value: 1036074},
-        duration: %{text: "9 hours 54 mins", value: 35612}
-}
+#=>  distance: %{text: "1,036 km", value: 1036074},
+#=>  duration: %{text: "9 hours 54 mins", value: 35612}
+#=> }
 
 iex> Distancex.result("49.2827N,123.1207W", "7.7833N,122.4167W").distance
 #=> %{text: "1,036 km", value: 1036074}
 
 iex> Distancex.result("49.2827N,123.1207W", "7.7833N,122.4167W").duration
-#=>  %{text: "9 hours 54 mins", value: 35612}
+#=> %{text: "9 hours 54 mins", value: 35612}
 ```
 
 You can pass optional paramater as an Elixir map.
@@ -62,9 +62,9 @@ Please see the list of available optional parameters in this [url]
 iex> Distancex.result("Vancouver", "San Francisco", %{units: "imperial"})
 
 #=> %Distancex.Result{
-    distance: %{text: "644 mi", value: 1036074},
-    duration: %{text: "9 hours 54 mins", value: 35612}
-}
+#=>   distance: %{text: "644 mi", value: 1036074},
+#=>   duration: %{text: "9 hours 54 mins", value: 35612}
+#=> }
 
 iex> Distancex.result("49.2827N,123.1207W", "7.7833N,122.4167W").distance
 #=> %{text: "644 mi", value: 1036074}
