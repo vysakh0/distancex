@@ -1,0 +1,30 @@
+box: appcues/elixir-dev
+
+services:
+  - id: postgres
+    env:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+build:
+  steps:
+    - script:
+        name: set env vars
+        code: |
+          export MIX_ENV=test
+
+    - script:
+        name: get and compile dependencies
+        code: |
+          cd $WERCKER_SOURCE_DIR
+          yes | mix do deps.get, deps.compile
+
+    - script:
+        name: compile
+        code: |
+          yes | mix compile
+
+    - script:
+        name: test
+        code: |
+          mix test
