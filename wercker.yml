@@ -1,11 +1,5 @@
 box: appcues/elixir-dev
 
-services:
-  - id: postgres
-    env:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-
 build:
   steps:
     - script:
